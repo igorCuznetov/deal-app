@@ -11,8 +11,8 @@ export const LocaleSelector = ({ isOpen }: Props) => {
   const { pathname, asPath, query } = router;
 
   const locales = [
-    ['en', 'English', '/assets/en-flag.svg'],
-    ['de', 'German', '/assets/de-flag.svg'],
+    ['ru', 'Русский', '/assets/ru-flag.svg'],
+    ['md', 'Romana', '/assets/md-flag.svg'],
   ];
 
   return (

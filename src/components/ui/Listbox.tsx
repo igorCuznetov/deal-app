@@ -20,7 +20,7 @@ export const Listbox = ({ items, defaultOptionIdx = 0, onSelect }: Props) => {
     <div className="z-50 w-48">
       <List
         value={selected}
-        onChange={item => {
+        onChange={(item) => {
           setSelected(item);
           onSelect(item);
         }}

@@ -9,8 +9,7 @@ export const collections: Prisma.CollectionCreateManyInput[] = [
     id: 5,
     name: 'Shop By Collection',
     slug: 'collection',
-    types: ['MEN', 'WOMEN'],
-  },
+    types: ['MEN', 'WOMEN'],},
   {
     id: 6,
     name: 'Sneakers',

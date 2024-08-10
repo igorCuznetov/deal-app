@@ -1,8 +1,8 @@
 import 'react-i18next';
-import common from '../../locales/en/common.json';
-import header from '../../locales/en/header.json';
-import home from '../../locales/en/home.json';
-import footer from '../../locales/en/footer.json';
+import common from '../../locales/ru/common.json';
+import header from '../../locales/ru/header.json';
+import home from '../../locales/ru/home.json';
+import footer from '../../locales/ru/footer.json';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {

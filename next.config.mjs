@@ -27,6 +27,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'pbs.twimg.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.freepik.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+      },
     ],
   },
   output: 'standalone',

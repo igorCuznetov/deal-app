@@ -22,7 +22,9 @@ export const Pagination = ({
   });
 
   const lastPage = Number(
-    paginationRange ? paginationRange[paginationRange?.length - 1] : currentPage
+    paginationRange
+      ? paginationRange[paginationRange?.length - 1]
+      : currentPage,
   );
 
   if (totalCount <= pageSize || currentPage > lastPage) return null;
@@ -43,7 +45,7 @@ export const Pagination = ({
               'flex h-10 w-10 items-center justify-center rounded-full text-base transition hover:bg-neutral-300',
               {
                 'bg-neutral-800 text-white': currentPage === page,
-              }
+              },
             )}
             onClick={() => typeof page !== 'string' && onPageChange(page)}
           >

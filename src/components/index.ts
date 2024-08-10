@@ -4,4 +4,6 @@ export * from './home/Hero';
 export * from './home/Promotions';
 export * from './bottom-navigation/BottomNavigation';
 export * from './product/Navigation';
-export * from './product/ProductList';
+export * from './tasks/TaskItem';
+export * from './tasks/CreateTaskForm';
+export * from './tasks/TaskList';

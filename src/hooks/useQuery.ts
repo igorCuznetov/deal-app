@@ -16,10 +16,10 @@ export const useQuery = (options: Options = {}) => {
           query: { ...router.query, [name]: value },
         },
         undefined,
-        options
+        options,
       );
     },
-    [router, options]
+    [router, options],
   );
 
   const removeQuery = useCallback(
@@ -27,7 +27,7 @@ export const useQuery = (options: Options = {}) => {
       delete router.query[name];
       router.push({ query: router.query }, undefined, options);
     },
-    [router, options]
+    [router, options],
   );
 
   return { addQuery, removeQuery };

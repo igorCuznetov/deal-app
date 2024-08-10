@@ -26,6 +26,6 @@ export const collectionRouter = createTRPCRouter({
           parent: null,
         },
         orderBy: { id: 'asc' },
-      })
+      }),
   ),
 });

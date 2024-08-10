@@ -41,7 +41,7 @@ export const CollectionsPage = ({
                 <Accordion.Body className="px-2 text-sm">
                   <ul>
                     {collections &&
-                      collections.map(collection => (
+                      collections.map((collection) => (
                         <li
                           key={collection.id}
                           className="block border-b border-solid border-neutral-100"
@@ -53,18 +53,18 @@ export const CollectionsPage = ({
                             <Accordion.Body className="px-2 text-xs">
                               <ul>
                                 {collection.children
-                                  .filter(subCollection =>
+                                  .filter((subCollection) =>
                                     subCollection.types.includes(
-                                      item.name === 'men' ? 'MEN' : 'WOMEN'
-                                    )
+                                      item.name === 'men' ? 'MEN' : 'WOMEN',
+                                    ),
                                   )
-                                  .map(subCollection => (
+                                  .map((subCollection) => (
                                     <li
                                       key={subCollection.id}
                                       className="block border-b border-solid border-neutral-100 py-2"
                                     >
                                       <Link
-                                        href={`/products/${item.name}/${subCollection.slug}`}
+                                        href={`/tasks/list`}
                                         onClick={onPageClose}
                                       >
                                         <h3>{subCollection.name}</h3>

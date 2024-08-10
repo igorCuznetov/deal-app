@@ -1,14 +1,32 @@
 import { PrismaClient } from '@prisma/client';
-import { collections, products } from '../src/data';
+import {
+  collections,
+  products,
+  locations,
+  categories,
+  subCategories,
+} from '../src/data';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  const createCollections = prisma.collection.createMany({
-    data: collections,
+  // const createLocations = prisma.location.createMany({
+  //   data: locations,
+  // });
+  // const createCategories = prisma.category.createMany({
+  //   data: categories,
+  // });
+  const createSubCategories = prisma.subCategory.createMany({
+    data: subCategories,
   });
+  // const createCollections = prisma.collection.createMany({
+  //   data: collections,
+  // });
 
-  await prisma.$transaction([createCollections]);
+  // await prisma.$transaction([createLocations]);
+  // await prisma.$transaction([createCategories]);
+  await prisma.$transaction([createSubCategories]);
+  // await prisma.$transaction([createCollections]);
 
   for (const p of products) {
     await prisma.product.create({
@@ -18,7 +36,7 @@ async function main() {
 }
 
 main()
-  .catch(e => {
+  .catch((e) => {
     console.error(e);
     process.exit(1);
   })

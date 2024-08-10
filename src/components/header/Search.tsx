@@ -37,7 +37,7 @@ export const Search = ({ onSearch }: Props) => {
         aria-label="Search"
         value={value}
         ref={inputRef}
-        onChange={e => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
       />
       {showClearButton ? (
         <button

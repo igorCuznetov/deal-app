@@ -1,11 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { capitalizeFirstLetter } from '@/utils';
 import { Collections } from '@/types';
-import { CollectionType } from '@prisma/client';
 
 interface Props {
-  type: CollectionType;
   collections: Collections;
   onShowMenu: () => void;
   onCloseMenu: () => void;
@@ -27,14 +24,7 @@ const trendingItems = [
   { label: 'Breast Cancer Awareness Collection', href: '/' },
 ];
 
-export const MegaMenu = ({
-  type,
-  collections,
-  onShowMenu,
-  onCloseMenu,
-}: Props) => {
-  const typeInLowerCase = type.toString().toLowerCase();
-
+export const MegaMenu = ({ collections, onShowMenu, onCloseMenu }: Props) => {
   return (
     <div
       onMouseEnter={onShowMenu}
@@ -91,32 +81,30 @@ export const MegaMenu = ({
         </div>
         <div className="flex flex-[3] border-l border-solid shadow-neutral-300">
           {collections &&
-            collections.map(collection => (
+            collections.map((collection) => (
               <div
                 key={collection.id}
                 className="ml-4 w-full max-w-[150px] py-8"
               >
                 <Link
-                  href={`/products/${typeInLowerCase}/${collection.slug}`}
+                  href={`/tasks`}
                   onClick={onCloseMenu}
                   className="text-sm font-bold uppercase leading-4 tracking-widest text-neutral-800 hover:underline"
                 >
                   {collection.name}
                 </Link>
                 <ul className="pt-2">
-                  {collection.children
-                    .filter(subCollection => subCollection.types.includes(type))
-                    .map(subCollection => (
-                      <li key={subCollection.id}>
-                        <Link
-                          href={`/products/${typeInLowerCase}/${subCollection.slug}`}
-                          className="mb-1.5 text-xs font-normal text-neutral-700 hover:underline"
-                          onClick={onCloseMenu}
-                        >
-                          {subCollection.name}
-                        </Link>
-                      </li>
-                    ))}
+                  {collection.children.map((subCollection) => (
+                    <li key={subCollection.id}>
+                      <Link
+                        href={`/tasks`}
+                        className="mb-1.5 text-xs font-normal text-neutral-700 hover:underline"
+                        onClick={onCloseMenu}
+                      >
+                        {subCollection.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             ))}
@@ -138,15 +126,11 @@ export const MegaMenu = ({
               (item, index) => (
                 <Link
                   key={index}
-                  href={`/products/${typeInLowerCase}/${item}`}
+                  href={`/tasks`}
                   className="ml-4 w-full max-w-[150px] py-3 text-xs font-bold text-neutral-800 hover:underline"
                   onClick={onCloseMenu}
-                >
-                  {`All ${capitalizeFirstLetter(
-                    typeInLowerCase
-                  )}'s ${capitalizeFirstLetter(item)}`}
-                </Link>
-              )
+                ></Link>
+              ),
             )}
           </div>
         </div>

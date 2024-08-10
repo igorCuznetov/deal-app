@@ -48,7 +48,7 @@ const Header = ({
   return (
     <button
       className={`flex w-full items-center justify-between py-4`}
-      onClick={() => setIsAccordionOpen(prev => !prev)}
+      onClick={() => setIsAccordionOpen((prev) => !prev)}
       {...props}
     >
       <span>{children}</span>

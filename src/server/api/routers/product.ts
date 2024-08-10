@@ -30,7 +30,7 @@ export const productRouter = createTRPCRouter({
   all: publicProcedure
     .input(
       z.object({
-        types: z.nativeEnum(CollectionType).optional(),
+        types: z.string().optional(),
         slug: z.string().optional(),
         page: z.number().optional(),
         rate: z.number().optional(),
@@ -38,7 +38,7 @@ export const productRouter = createTRPCRouter({
         lte: z.number().optional(),
         sizes: z.nativeEnum(ProductSize).array().optional(),
         colors: z.nativeEnum(ProductColor).array().optional(),
-      })
+      }),
     )
     .query(async ({ input, ctx }) => {
       const {
@@ -56,7 +56,9 @@ export const productRouter = createTRPCRouter({
       const skip = take * (page - 1);
 
       const where: Prisma.ProductWhereInput = {
-        types: { hasSome: [types] },
+        // types: { hasSome: [types] },
+        types: { hasSome: [] },
+
         published: true,
         rate: rate ? { gte: rate } : undefined,
         price: { gte, lte },
